@@ -134,7 +134,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Downloads\glad\src\glad.c" />
+    <ClCompile Include="HelloTriangle.cpp" />
     <ClCompile Include="HelloWindow.cpp" />
+    <ClCompile Include="HelperFunctions.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HelloTriangle.h" />
+    <ClInclude Include="HelloWindow.h" />
+    <ClInclude Include="HelperFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
