@@ -1,0 +1,3 @@
+﻿add_subdirectory(HelperFunctions)
+add_subdirectory(HelloTriangle)
+add_subdirectory(HelloWindow)
