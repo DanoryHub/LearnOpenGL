@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "glad.h"
-#include "GLFW/glfw3.h"
+#include "glfw3.h"
 
 #include "HelperFunctions.h"
 

@@ -1,4 +1,5 @@
-﻿add_subdirectory(HelperFunctions)
+﻿add_subdirectory(glad)
+add_subdirectory(GLFW)
+add_subdirectory(HelperFunctions)
 add_subdirectory(HelloTriangle)
 add_subdirectory(HelloWindow)
-add_subdirectory(glad)
