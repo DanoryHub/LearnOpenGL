@@ -4,8 +4,8 @@
 
 int main()
 {
-	CreateWindow();
-	//RenderTriangle();
+	//CreateWindow();
+	RenderTriangle();
 
 	return 0;
 }
