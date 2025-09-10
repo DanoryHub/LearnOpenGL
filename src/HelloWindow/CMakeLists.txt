@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 4.0)
-project(HelloWindow)
-
 include_directories(HelperFunctions
         "${CMAKE_SOURCE_DIR}/src/glad"
         "${CMAKE_SOURCE_DIR}/src/GLFW/include"
