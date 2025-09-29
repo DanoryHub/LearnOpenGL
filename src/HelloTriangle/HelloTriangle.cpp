@@ -66,7 +66,7 @@ int RenderTriangle()
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // GL_FILL or GL_LINE
 
-    float horizontalOffset = 0.3f;
+    float horizontalOffset = 0.0f;
 
     while (!glfwWindowShouldClose(window))
     {
