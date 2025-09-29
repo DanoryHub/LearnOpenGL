@@ -12,6 +12,7 @@ add_subdirectory(src)
 add_executable(LearnOpenGL main.cpp)
 target_link_libraries(LearnOpenGL
         OpenGL::GL
+        Shader
         HelperFunctions
         HelloTriangle
         HelloWindow
