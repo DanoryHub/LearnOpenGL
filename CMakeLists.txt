@@ -9,7 +9,10 @@ set(GLFW_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/src/GLFW/include")
 
 add_subdirectory(src)
 
-add_executable(LearnOpenGL main.cpp)
+add_executable(LearnOpenGL main.cpp
+        src/stb_image/stb_image.h
+        src/stb_image/stb_image.cpp
+)
 target_link_libraries(LearnOpenGL
         OpenGL::GL
         Shader

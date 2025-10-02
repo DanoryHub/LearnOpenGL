@@ -1,5 +1,6 @@
 ﻿add_subdirectory(glad)
 add_subdirectory(GLFW)
+add_subdirectory(stb_image)
 add_subdirectory(Shader)
 add_subdirectory(HelperFunctions)
 add_subdirectory(HelloTriangle)

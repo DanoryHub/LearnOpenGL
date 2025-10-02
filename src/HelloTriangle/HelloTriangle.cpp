@@ -3,6 +3,7 @@
 
 #include "glad.h"
 #include "glfw3.h"
+#include "stb_image.h"
 
 #include "Shader.h"
 #include "HelperFunctions.h"
@@ -47,6 +48,14 @@ int RenderTriangle()
         0.0f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f
     };
 
+    float texCoords[] = {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.5f, 1.0f,
+    };
+
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("Textures/container.jpg", &width, &height, &nrChannels, 0);
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
