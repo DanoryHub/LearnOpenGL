@@ -3,6 +3,7 @@
 #include "glad.h"
 #include "glfw3.h"
 
+float TWO_TEXTURES_CLAMP_FACTOR = 0.5f;
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int heigth)
 {
@@ -15,6 +16,20 @@ void processInput(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+		if (TWO_TEXTURES_CLAMP_FACTOR >= 1.0f) {
+			return;
+		}
+		TWO_TEXTURES_CLAMP_FACTOR += 0.1f;
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		if (TWO_TEXTURES_CLAMP_FACTOR <= 0.1f) {
+			return;
+		}
+		TWO_TEXTURES_CLAMP_FACTOR -= 0.1f;
 	}
 }
 
