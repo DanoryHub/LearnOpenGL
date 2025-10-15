@@ -21,6 +21,7 @@ target_link_libraries(LearnOpenGL
         HelloWindow
         glad
         glfw3
+        glm::glm
 )
 target_include_directories(LearnOpenGL PUBLIC
         "${PROJECT_BINARY_DIR}"

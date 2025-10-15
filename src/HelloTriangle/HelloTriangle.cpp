@@ -4,6 +4,7 @@
 #include "glad.h"
 #include "glfw3.h"
 #include "stb_image.h"
+#include "glm.hpp"
 
 #include "Shader.h"
 #include "HelperFunctions.h"

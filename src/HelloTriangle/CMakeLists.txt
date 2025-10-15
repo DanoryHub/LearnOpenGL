@@ -1,4 +1,4 @@
 ﻿add_library(HelloTriangle HelloTriangle.cpp)
 
 target_include_directories(HelloTriangle PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(HelloTriangle PUBLIC HelperFunctions Shader stb_image)
+target_link_libraries(HelloTriangle PUBLIC HelperFunctions Shader stb_image glm)
