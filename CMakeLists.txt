@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package( OpenGL REQUIRED )
 set(GLFW_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/src/GLFW/include")
 
+set(GLM_BUILD_LIBRARY true)
+
 add_subdirectory(src)
 
 add_executable(LearnOpenGL main.cpp
