@@ -4,6 +4,9 @@
 #include "glad.h"
 #include "glfw3.h"
 #include "stb_image.h"
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"
+#include "gtc/type_ptr.hpp"
 
 #include "Shader.h"
 #include "HelperFunctions.h"
@@ -140,8 +143,18 @@ int RenderTriangle()
     baseShader.setInt("texture1", 0);
     baseShader.setInt("texture2", 1);
 
+    float x_coord_location = 0.;
+    int x_coord_addition_factor = 1;
+    float xy_scale = 1.;
+    int scale_addition_factor = 1;
+    float rotate_degrees = 0.;
     while (!glfwWindowShouldClose(window))
     {
+        if (x_coord_location >= 1.0f || x_coord_location <= -1.0) {
+            x_coord_addition_factor *= -1;
+        }
+        x_coord_location += static_cast<float>(x_coord_addition_factor) * 0.1;
+        rotate_degrees += 1.;
         processInput(window);
 
         baseShader.setFloat("twoTexturesClampFactor", TWO_TEXTURES_CLAMP_FACTOR);
@@ -154,13 +167,26 @@ int RenderTriangle()
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, textures[1]);
 
-        // float timeValue = glfwGetTime();
-        // float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-        // int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        // baseShader.setFloat("horizontalOffset", horizontalOffset);
-        // glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        auto trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(0.5, -0.5f, 0.0f));
+        trans = glm::rotate(trans, glm::radians(rotate_degrees), glm::vec3(0.0f, 0.0f, 1.0f));
+        //trans = glm::scale(trans, glm::vec3(0.6f, 0.5f, 0.5f));
+        baseShader.setMat4("transform", trans);
 
         glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+        if (xy_scale >= 1.9 || xy_scale <= 0.1) {
+            scale_addition_factor *= -1;
+        }
+
+        xy_scale += 0.1 * scale_addition_factor;
+
+        trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(-0.5, 0.5f, 0.0f));
+        trans = glm::scale(trans, glm::vec3(xy_scale, xy_scale, 1.0f));
+        baseShader.setMat4("transform", trans);
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
